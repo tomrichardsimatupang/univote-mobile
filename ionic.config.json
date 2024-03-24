@@ -1,0 +1,7 @@
+{
+  "name": "univote-mobile-new",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
