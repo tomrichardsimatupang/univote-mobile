@@ -1,0 +1,11 @@
+{
+    "/dev": {
+        "target": "http://localhost/univote/public",
+        "secure": false,
+        "pathRewrite": {
+            "^/dev": ""
+        },
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}

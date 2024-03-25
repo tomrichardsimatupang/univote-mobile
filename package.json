@@ -1,12 +1,15 @@
 {
   "name": "univote-mobile-new",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --port=4800 --proxy-config proxy.json",
+    "build": "ionic build --prod",
+    "prebuild": "npm --no-git-tag-version version patch",
+    "postbuild": "node deploy.js",
+    "deploy-worker": "npx ngsw-config ./www ./ngsw-config.json /app/ && node deploy.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
@@ -27,6 +30,7 @@
     "@capacitor/keyboard": "5.0.8",
     "@capacitor/status-bar": "5.0.7",
     "@ionic/angular": "^7.0.0",
+    "basic-ftp": "^5.0.5",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

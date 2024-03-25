@@ -3,9 +3,26 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'sign-in',
+    loadChildren: () => import('./auth/sign-in/sign-in.module').then( m => m.SignInModule)
+  },
+  {
+    path: 'sign-up',
+    loadChildren: () => import('./auth/sign-up/sign-up.module').then( m => m.SignUpModule)
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./auth/forgot-password/forgot-password.module').then( m => m.ForgotPasswordModule)
+  },
+  {
+    path: 'app',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+  },
+  {
+    path: '',
+    redirectTo: '/sign-in',
+    pathMatch: 'full',
+  },
 ];
 @NgModule({
   imports: [

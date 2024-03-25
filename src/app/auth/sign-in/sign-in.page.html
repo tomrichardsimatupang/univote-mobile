@@ -1,0 +1,51 @@
+<ion-content color="light">
+  <ion-grid class="full-height">
+    <ion-row class="full-height items-center">
+      <ion-col>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-img
+                class="ion-padding"
+                src="{{deployUrl}}assets/images/login-illustration.svg"
+                alt="Login Evote"
+              ></ion-img>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-list [inset]="true">
+          <form [formGroup]="form">
+            <ion-item>
+              <ion-input
+                formControlName="username"
+                [clearInput]="true"
+                placeholder="Username"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="password"
+                type="password"
+                [clearInput]="true"
+                placeholder="Password"
+              ></ion-input>
+            </ion-item>
+          </form>
+        </ion-list>
+        <ion-note color="medium" class="ion-margin-horizontal ph-8">
+          Password minimal harus 8 karakter
+        </ion-note>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ph-16">
+              <ion-button expand="block" (click)="signIn()">Masuk</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-note color="medium" class="ion-margin-horizontal p-8 text-center">
+          Belum punya akun ? <ion-button (click)="signUp()" class="btn-text">Daftar</ion-button>
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

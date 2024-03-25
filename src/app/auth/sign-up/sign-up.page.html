@@ -1,0 +1,102 @@
+<ion-content color="light">
+  <ion-grid class="full-height">
+    <ion-row class="full-height items-center">
+      <ion-col>
+        <ion-list [inset]="true">
+          <form [formGroup]="form">
+            <ion-item>
+              <ion-input
+                labelPlacement="floating"
+                label="NIM"
+                formControlName="nim"
+                [clearInput]="true"
+                placeholder="NIM"
+                (ionChange)="checkValidNim($event)"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="faculty_name"
+                [clearInput]="true"
+                placeholder="Fakultas"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="major_name"
+                [clearInput]="true"
+                placeholder="Jurusan"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                labelPlacement="floating"
+                label="Password"
+                formControlName="password"
+                type="password"
+                [clearInput]="true"
+                placeholder="Password"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                labelPlacement="floating"
+                label="Confirm Password"
+                formControlName="password"
+                type="password"
+                [clearInput]="true"
+                placeholder="Confirm Password"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                labelPlacement="floating"
+                label="Nama"
+                formControlName="name"
+                [clearInput]="true"
+                placeholder="Nama"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                labelPlacement="floating"
+                label="Email"
+                formControlName="email"
+                [clearInput]="true"
+                placeholder="Email"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                labelPlacement="floating"
+                label="Phone Number"
+                formControlName="phone_number"
+                [clearInput]="true"
+                placeholder="Phone Number"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-select label="Gender" label-placement="floating" (ionChange)="onChangeSelect('gender', $event)">
+                <ion-select-option value="P">Perempuan</ion-select-option>
+                <ion-select-option value="L">Laki-laki</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </form>
+        </ion-list>
+        <ion-note color="medium" class="ion-margin-horizontal ph-8 pv-8 text-center">
+          Password minimal harus 8 karakter
+        </ion-note>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ph-16">
+              <ion-button expand="block" (click)="postSignUp()">Daftar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-note color="medium" class="ion-margin-horizontal p-8 text-center">
+          Sudah punya akun ? <ion-button (click)="navToSignIn()" class="btn-text">Masuk</ion-button>
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

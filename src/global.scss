@@ -24,3 +24,72 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+.full-height {
+  height: 100%;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.p-8 {
+  padding: 8px;
+}
+
+.pv-8 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.ph-8 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.ph-16 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+ion-button.btn-text {
+  --background: none;
+  --background-hover: none;
+  --background-activated: none;
+  --background-focused: none;
+
+  --color: blue;
+
+  --border-radius: 0;
+  --border-color: #000;
+  --border-style: solid;
+  --border-width: 0px;
+
+  --box-shadow: none;
+
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+  --padding-left: 0px;
+  --padding-right: 0px;
+  --padding-start: 0px;
+  --padding-end: 0px;
+
+  vertical-align: text-bottom;
+
+  margin: 0px;
+  min-height: unset;
+
+}

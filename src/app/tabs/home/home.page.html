@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Univote
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"><app-logo></app-logo></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card class="post" *ngFor="let item of posts">
+    <img alt="Silhouette of mountains" [src]="item.image" />
+    <ion-card-header>
+      <ion-card-subtitle>admin</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Here's a small text description...
+      <button class="button-more">more</button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
