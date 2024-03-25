@@ -1,6 +1,6 @@
 {
   "name": "univote-mobile-new",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "ng serve --port=4800 --proxy-config proxy.json",
     "build": "ionic build --prod",
     "prebuild": "npm --no-git-tag-version version patch",
-    "postbuild": "node deploy.js",
+    "postbuild": "npx ngsw-config ./www ./ngsw-config.json /app/ && node deploy.js",
     "deploy-worker": "npx ngsw-config ./www ./ngsw-config.json /app/ && node deploy.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^17.0.2",
     "@angular/platform-browser-dynamic": "^17.0.2",
     "@angular/router": "^17.0.2",
+    "@angular/service-worker": "^17.0.2",
     "@capacitor/app": "5.0.7",
     "@capacitor/core": "5.7.4",
     "@capacitor/haptics": "5.0.7",
