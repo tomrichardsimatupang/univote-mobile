@@ -1,8 +1,8 @@
 {
   "name": "univote-mobile-new",
-  "version": "0.0.6",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "version": "0.0.7",
+  "author": "Tom Richard",
+  "homepage": "https://xdevpusaka.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port=4800 --proxy-config proxy.json",
