@@ -1,0 +1,109 @@
+zxing-scanner::ng-deep video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: contain;
+}
+
+zxing-scanner.desktop::ng-deep video {
+  transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+}
+
+.scanner-frame {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  left: 0xp;
+  z-index: 1000;
+  background: white;
+  clip-path: polygon(0% 0%, 0% 100%, 5% 100%, 5% 15%, 95% 15%, 95% 85%, 5% 85%, 5% 100%, 100% 100%, 100% 0%);
+}
+
+.logo {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+$color: #007EFF;
+
+.icon-back {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15px;
+  ion-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.icon-scan {
+  position: absolute;
+  height: calc(15% - 16px);
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #EEE;
+  font-weight: bold;
+
+  .icon-with-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 96px;
+    height: 72px;
+    color: $color;
+    border-top: 2px solid $color;
+  }
+
+  ion-icon {
+    width: 28px;
+    height: 28px;
+    color: $color;
+  }
+}
+
+.line-scanner.hide {
+  display: none;
+}
+
+.line-scanner {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 30px;
+  z-index: 900;
+  top: 20%;
+  left: 0;
+  background: rgb(254,255,0);
+  background: -moz-linear-gradient(0deg, rgba(254,255,0,0) 0%, rgba(255,222,0,0.30024509803921573) 50%, rgba(254,255,0,0) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(254,255,0,0) 0%, rgba(255,222,0,0.30024509803921573) 50%, rgba(254,255,0,0) 100%);
+  background: linear-gradient(0deg, rgba(254,255,0,0) 0%, rgba(255,222,0,0.30024509803921573) 50%, rgba(254,255,0,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#feff00",endColorstr="#feff00",GradientType=1);
+  animation: moveLine 3s linear infinite;
+}
+
+@keyframes moveLine {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(1500%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}

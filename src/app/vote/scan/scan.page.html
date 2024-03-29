@@ -1,0 +1,29 @@
+<div class="scanner-frame">
+  <div class="logo">
+    <app-logo></app-logo>
+  </div>
+  <div class="icon-back">
+    <ion-icon name="arrow-back" (click)="navigateBack()"></ion-icon>
+  </div>
+  <div class="icon-scan">
+    <div class="icon-with-text">
+      <div class="icon">
+        <ion-icon name="scan"></ion-icon>
+      </div>
+      <div class="icon-text">Scan QR</div>
+    </div>
+  </div>
+</div>
+<div class="line-scanner" [ngClass]="{'hide':!scannerEnabled}"></div>
+<zxing-scanner
+  class="desktop"
+  [enable]="scannerEnabled"
+  [formats]="allowedFormats"
+  [(device)]="cameraDevice"
+  [tryHarder]="true"
+  (camerasFound)="camerasFoundHandler($event)"
+  (camerasNotFound)="camerasNotFoundHandler($event)"
+  (scanSuccess)="scanSuccessHandler($event)"
+  (scanError)="scanErrorHandler($event)"
+  (scanComplete)="scanCompleteHandler($event)"
+></zxing-scanner>

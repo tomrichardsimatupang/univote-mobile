@@ -23,6 +23,14 @@ const routes: Routes = [
     redirectTo: '/sign-in',
     pathMatch: 'full',
   },
+  {
+    path: 'vote/scan',
+    loadChildren: () => import('./vote/scan/scan.module').then( m => m.ScanPageModule)
+  },
+  {
+    path: 'vote/dashboard',
+    loadChildren: () => import('./vote/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
 ];
 @NgModule({
   imports: [
