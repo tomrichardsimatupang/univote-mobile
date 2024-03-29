@@ -16,7 +16,7 @@
   <ion-grid class="">
     <ion-row>
       <ion-col>
-        <ion-card color="primary" href="vote/scan">
+        <ion-card color="primary" (click)="navigateTo('vote/scan')">
           <div class="menu-item-icon">
             <img alt="Menu Voting" [src]="deployUrl+'assets/app/menu/check.svg'" />
           </div>
@@ -26,7 +26,7 @@
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card color="primary" href="vote/dashboard">
+        <ion-card color="primary" (click)="navigateTo('vote/dashboard')">
           <div class="menu-item-icon">
             <img alt="Menu Hasil Voting" [src]="deployUrl+'assets/app/menu/chart-pie.svg'" />
           </div>
