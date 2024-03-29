@@ -30,7 +30,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       catchError( error => {
-        this.popupService.generalError(error);
+        const skipErrorCode = ["400129"];
+        if(!skipErrorCode.includes(error?.error?.code)) {
+          this.popupService.generalError(error);
+        }
         return throwError( () => error );
       })
     );

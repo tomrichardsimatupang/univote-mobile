@@ -51,7 +51,7 @@ export class ScanPage implements OnInit, OnDestroy {
   }
 
   navigateBack() {
-    this.navCtrl.navigateBack("/app/menu");
+    this.navCtrl.navigateRoot("/app/menu");
   }
 
 }

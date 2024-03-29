@@ -13,12 +13,14 @@ export interface UserData {
   userId: string,
   userName: string,
   userRole: string,
+  userPhone: string,
+  userEmail: string,
   facultyId: string,
   facultyName: string,
   majorId: string,
   majorName: string,
   accessMenu: Array<string>,
-  accessDefault: string,
+  accessDefault: string
 }
 
 @Injectable({
@@ -34,7 +36,9 @@ export class AuthService {
   constructor(
     private readonly http: HttpClient,
     private readonly storageService: StorageService
-  ) { }
+  ) {
+    this.loadUserData();
+  }
 
   isLoggedIn() {
     return this.userData && this.accessToken;
@@ -52,21 +56,26 @@ export class AuthService {
     return this.http.post( WsConstant.postSignup, payload );
   }
 
+  postSignOut( payload: any ) {
+    return this.http.post( WsConstant.postSignout, payload );
+  }
+
   postCheckNim( payload: any ) {
     return this.http.post( WsConstant.postCheckNim, payload );
   }
 
   postTokenVerify(): Observable<any> {
-    if(!this.isLoggedIn()) {
-      return throwError(() => ({
-        code: "403",
-        title: "Forbidden",
-        message: "No Access"
-      }));
-    }
-    const payload = {
-      access_token: this.accessToken
-    };
+    // if(!this.isLoggedIn()) {
+    //   return throwError(() => ({
+    //     code: "403",
+    //     title: "Forbidden",
+    //     message: "No Access"
+    //   }));
+    // }
+    // const payload = {
+    //   access_token: this.accessToken
+    // };
+    const payload = {};
     return this.http.post( WsConstant.postTokenVerify, payload );
   }
 

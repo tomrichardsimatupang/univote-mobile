@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService, UserData } from '../../@services/http/auth.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-account',
@@ -7,6 +9,28 @@ import { Component } from '@angular/core';
 })
 export class AccountPage {
 
-  constructor() {}
+  userData: UserData | null;
+
+  constructor(
+    private readonly authService: AuthService,
+    private readonly navCtrl: NavController
+  ) {
+    this.authService.loadUserData();
+    this.userData = this.authService.userData;
+  }
+
+  signOut() {
+
+    this.authService.postSignOut({}).subscribe({
+      next: (res) => {
+        this.authService.clearLogin();
+        this.navCtrl.navigateRoot("/sign-in");
+      },
+      error: (error) => {
+
+      }
+    })
+
+  }
 
 }

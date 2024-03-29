@@ -16,7 +16,7 @@ export class MenuPage extends BaseComponent {
   }
 
   navigateTo(path: string) {
-    this.navCtrl.navigateForward(path);
+    this.navCtrl.navigateRoot(path);
   }
 
 }
