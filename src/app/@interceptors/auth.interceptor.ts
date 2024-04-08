@@ -27,7 +27,6 @@ export class AuthInterceptor implements HttpInterceptor {
       })
     }
 
-
     return next.handle(request).pipe(
       catchError( error => {
         const skipErrorCode = ["400129"];

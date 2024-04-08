@@ -47,7 +47,7 @@ export class ScanPage implements OnInit, OnDestroy {
   scanCompleteHandler(event: Result) {
   }
   scanErrorHandler(error: Error) {
-    console.log(error);
+    /** empty */
   }
 
   navigateBack() {

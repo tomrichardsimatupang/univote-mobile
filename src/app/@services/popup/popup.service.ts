@@ -28,5 +28,18 @@ export class PopupService {
 
   }
 
+  permissionDenied() {
+    const popup = this.alertController.create({
+      header: "Permission Denied",
+      message: "Silahkan berikan akses untuk melanjutkan.",
+      buttons: ['Mengerti']
+    });
+    popup.then(alert => {
+      alert.onDidDismiss().then(() => {
+        location.reload();
+      });
+      alert.present()
+    });
+  }
 
 }

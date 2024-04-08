@@ -1,0 +1,39 @@
+ion-card {
+  img {
+    width: 100%;
+  }
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.illustration {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 16px;
+  img {
+    width: 80%;
+  }
+}
+
+.loader-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #324ec8;
+  span {
+    font-weight: bold;
+    margin-left: 16px;
+  }
+}
+
+ion-spinner {
+  --color: #324ec8;
+}
