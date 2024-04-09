@@ -8,6 +8,11 @@ export class HardwareService {
   constructor() {
   }
 
+  isMobileDevice() {
+    const regexMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regexMobile.test(navigator.userAgent);
+  }
+
   getPermission(): any {
 
     return new Promise<string>((resolve, reject) => {

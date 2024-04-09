@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('./vote/scan/scan.module').then( m => m.ScanPageModule)
       },
       {
+        path: 'vote/scan-failed',
+        loadChildren: () => import('./vote/scan-failed/scan-failed.module').then( m => m.ScanFailedPageModule)
+      },
+      {
         path: 'vote/dashboard',
         loadChildren: () => import('./vote/dashboard/dashboard.module').then( m => m.DashboardPageModule)
       },

@@ -1,11 +1,11 @@
 {
   "name": "univote-mobile-new",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "author": "Tom Richard",
   "homepage": "https://xdevpusaka.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --ssl --port=4800 --proxy-config proxy.json",
+    "start": "ng serve --ssl --port=4800 --host=0.0.0.0 --proxy-config proxy.json",
     "build": "ionic build --prod",
     "prebuild": "npm --no-git-tag-version version patch",
     "postbuild": "npx ngsw-config ./www ./ngsw-config.json /app/ && node deploy.js",

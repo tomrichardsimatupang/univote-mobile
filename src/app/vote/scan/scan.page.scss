@@ -1,6 +1,6 @@
 zxing-scanner::ng-deep video {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   object-fit: contain;
 }
 
@@ -12,8 +12,8 @@ zxing-scanner.desktop::ng-deep video {
 
 .scanner-frame {
   position: fixed;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   top: 0px;
   left: 0xp;
   z-index: 1000;

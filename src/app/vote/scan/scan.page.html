@@ -16,7 +16,7 @@
 </div>
 <div class="line-scanner" [ngClass]="{'hide':!scannerEnabled}"></div>
 <zxing-scanner
-  class="desktop"
+  [ngClass]="{'mobile':isMobile, 'desktop':!isMobile}"
   [enable]="scannerEnabled"
   [formats]="allowedFormats"
   [(device)]="cameraDevice"

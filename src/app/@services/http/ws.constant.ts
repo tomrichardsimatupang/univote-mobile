@@ -11,6 +11,8 @@ export const WsConstant = {
 
   postCheckNim: `${environment.apiUrl}mobile-service/v1/register/voters/nim`,
 
-  getCandidateList: `${environment.apiUrl}mobile-service//v1/vote/candidate/list`,
+  getCandidateList: `${environment.apiUrl}mobile-service/v1/vote/candidate/list`,
+
+  postVoteCheckin: `${environment.apiUrl}mobile-service/v1/vote/checkin`,
 
 }

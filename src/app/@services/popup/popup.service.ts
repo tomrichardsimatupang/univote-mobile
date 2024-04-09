@@ -24,6 +24,18 @@ export class PopupService {
         message: "Silahkan ulang kembali",
         buttons: ['Kembali']
       }).then(alert => alert.present());
+    }else if( error.status === 404 ) {
+      this.alertController.create({
+        header: "Url Tidak Ditemukan",
+        message: "Tunggu Sebentar kami akan memperbaiki masalah ini.",
+        buttons: ['Kembali']
+      }).then(alert => alert.present());
+    }else if( error.status === 405 ) {
+      this.alertController.create({
+        header: "Method Not Allowed",
+        message: "Tunggu Sebentar kami akan memperbaiki masalah ini.",
+        buttons: ['Kembali']
+      }).then(alert => alert.present());
     }
 
   }

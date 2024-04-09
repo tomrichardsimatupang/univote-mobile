@@ -33,4 +33,8 @@ export class MobileService extends HttpCoreService {
     );;
   }
 
+  postVoteCheckin( token: string ) {
+    return this.http.post( WsConstant.postVoteCheckin, {token});
+  }
+
 }
