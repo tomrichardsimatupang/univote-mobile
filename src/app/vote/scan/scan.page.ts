@@ -7,6 +7,7 @@ import { HardwareService } from '../../@services/hardware/hardware.service';
 import { MobileService } from '../../@services/http/mobile.service';
 import { PopupService } from '../../@services/popup/popup.service';
 import { BaseComponent } from '@app/@core/base/base.component';
+import { AuthService } from '../../../../../univote-frontend/src/app/@services/http/auth/auth.service';
 
 @Component({
   selector: 'app-scan',

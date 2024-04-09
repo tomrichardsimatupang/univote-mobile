@@ -41,10 +41,12 @@ export class AuthService {
   }
 
   isLoggedIn() {
+    this.loadUserData();
     return this.userData && this.accessToken;
   }
 
   getUserData() {
+    this.loadUserData();
     return this.userData;
   }
 
@@ -65,18 +67,7 @@ export class AuthService {
   }
 
   postTokenVerify(): Observable<any> {
-    // if(!this.isLoggedIn()) {
-    //   return throwError(() => ({
-    //     code: "403",
-    //     title: "Forbidden",
-    //     message: "No Access"
-    //   }));
-    // }
-    // const payload = {
-    //   access_token: this.accessToken
-    // };
-    const payload = {};
-    return this.http.post( WsConstant.postTokenVerify, payload );
+    return this.http.post( WsConstant.postTokenVerify, {});
   }
 
   saveUserData(userData: any) {
