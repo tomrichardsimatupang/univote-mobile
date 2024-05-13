@@ -1,6 +1,6 @@
 {
   "name": "univote-mobile-new",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "author": "Tom Richard",
   "homepage": "https://xdevpusaka.com/",
   "scripts": {
@@ -34,6 +34,7 @@
     "@zxing/ngx-scanner": "^17.0.1",
     "basic-ftp": "^5.0.5",
     "ionicons": "^7.0.0",
+    "moment": "^2.30.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

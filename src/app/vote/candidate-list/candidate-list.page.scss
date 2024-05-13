@@ -34,6 +34,20 @@ ion-card {
   }
 }
 
+.empty {
+  color: #CCC;
+}
+
+.empty-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #CCC;
+  span {
+    font-weight: bold;
+  }
+}
+
 ion-spinner {
   --color: #324ec8;
 }

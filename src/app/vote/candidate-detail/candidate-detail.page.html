@@ -1,20 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>{{ category }}</ion-title>
+    <ion-title>{{ candidate?.category_name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="medium">{{ category }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
   <ion-card>
-    <img alt="Menu Voting" [src]="'https://i.pravatar.cc/300'" />
+    <img alt="Menu Voting" [src]="candidate?.photo" />
     <ion-card-header>
-      <ion-card-subtitle>1. Siti & Nurjanah</ion-card-subtitle>
+      <ion-card-subtitle>{{ candidate?.candidate_name }}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 
@@ -29,7 +24,7 @@
     </ion-row>
     <ion-row>
       <ion-col class="ph-16">
-        <ion-note>Default Note</ion-note>
+        <ion-note>{{ candidate?.candidate_vision }}</ion-note>
       </ion-col>
      </ion-row>
   </ion-grid>
@@ -42,7 +37,7 @@
     </ion-row>
     <ion-row>
       <ion-col class="ph-16">
-        <ion-note>Default Note</ion-note>
+        <ion-note>{{ candidate?.candidate_mission }}</ion-note>
       </ion-col>
      </ion-row>
   </ion-grid>

@@ -15,4 +15,12 @@ export const WsConstant = {
 
   postVoteCheckin: `${environment.apiUrl}mobile-service/v1/vote/checkin`,
 
+  postVoteCandidateVoting: `${environment.apiUrl}mobile-service/v1/vote/candidate/voting`,
+
+  getProfilingDetail: `${environment.apiUrl}mobile-service/v1/register/profiling/detail`,
+
+  postProfilingUpdate: `${environment.apiUrl}mobile-service/v1/register/profiling/update`,
+
+  getContentPostList: `${environment.apiUrl}mobile-service/v1/content/post/list`
+
 }

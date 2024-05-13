@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class HardwareService {
 
+  deviceId: string = "";
+
   constructor() {
   }
 
@@ -39,6 +41,7 @@ export class HardwareService {
       .then((devices) => {
         const device = devices.find((device) => device.kind === 'videoinput');
         if(device) {
+          this.deviceId = device.deviceId;
           resolve(device.deviceId);
         }else {
           reject();

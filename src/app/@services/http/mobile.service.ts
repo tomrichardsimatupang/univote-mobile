@@ -37,4 +37,20 @@ export class MobileService extends HttpCoreService {
     return this.http.post( WsConstant.postVoteCheckin, {token});
   }
 
+  postVoteCandidateVoting( payload: any ) {
+    return this.http.post( WsConstant.postVoteCandidateVoting, payload);
+  }
+
+  getProfilingDetail(): Observable<any> {
+    return this.http.get( WsConstant.getProfilingDetail);
+  }
+
+  postProfilingUpdate( payload: any ): Observable<any> {
+    return this.http.post( WsConstant.postProfilingUpdate, payload );
+  }
+
+  getContentPostList(): Observable<any> {
+    return this.http.get( WsConstant.getContentPostList );
+  }
+
 }
