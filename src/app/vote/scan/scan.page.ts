@@ -39,7 +39,7 @@ export class ScanPage extends BaseComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isMobile = this.hardwareService.isMobileDevice();
-    this.scannerEnabled = true;
+    this.scannerEnabled = false;
   }
 
   override ngOnDestroy(): void {
@@ -48,22 +48,21 @@ export class ScanPage extends BaseComponent implements OnInit, OnDestroy {
     clearTimeout(this.currentTimeout);
   }
 
+  findBackCamera(mediaDevice: MediaDeviceInfo[]): MediaDeviceInfo {
+    return mediaDevice[mediaDevice.length-1];
+  }
+
   camerasFoundHandler(mediaDevice: MediaDeviceInfo[]) {
+    this.scannerEnabled = false;
     const waitDeviceReady = 1500;
     this.currentTimeout = setTimeout(() => {
-      this.availableDevices = mediaDevice;
+      this.availableDevices = mediaDevice.filter( x => !x.label.toLowerCase().includes('virtual') );
+      const backCamera = this.findBackCamera(this.availableDevices);
       if(this.isMobile) {
-        let selectedDevice = mediaDevice.find(info => info.label.toLowerCase().includes("back camera"));
-        if(!selectedDevice) {
-          selectedDevice = mediaDevice.find(info => info.label.toLowerCase().includes("back"));
-        }
-        if(!selectedDevice) {
-          selectedDevice = this.availableDevices[0];
-        }
-        this.cameraDevice = selectedDevice;
+        this.cameraDevice = backCamera;
         this.scannerEnabled = true;
       }else {
-        this.cameraDevice = this.availableDevices[0];
+        this.cameraDevice = backCamera;
         this.scannerEnabled = true;
       }
     }, waitDeviceReady);

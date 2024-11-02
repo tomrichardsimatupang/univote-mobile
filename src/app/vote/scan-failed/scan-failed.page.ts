@@ -12,6 +12,8 @@ export class ScanFailedPage implements OnInit {
     message: "Terdapat kegagalan pada saat scan, silahkan ulangi"
   };
 
+  isEnableRetry = true;
+
   constructor(
     private readonly navCtrl: NavController
   ) { }
@@ -20,11 +22,20 @@ export class ScanFailedPage implements OnInit {
     try {
       const error = sessionStorage.getItem("scan-error");
       this.error = JSON.parse(error || '');
+      if(["408229", "408230", "408231"].includes(this.error.code)) {
+        this.isEnableRetry = false;
+      }
     }catch(e) { /** empty */ }
   }
 
   retry() {
     this.navCtrl.navigateRoot('/vote/scan');
   }
+
+  backToMenu() {
+    this.navCtrl.navigateRoot('/app/menu');
+  }
+
+
 
 }

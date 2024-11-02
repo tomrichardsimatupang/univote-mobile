@@ -41,8 +41,12 @@ export class MobileService extends HttpCoreService {
     return this.http.post( WsConstant.postVoteCandidateVoting, payload);
   }
 
-  getProfilingDetail(): Observable<any> {
-    return this.http.get( WsConstant.getProfilingDetail);
+  getProfilingDetail(skipPopup = false): Observable<any> {
+    let headers = {};
+    if(skipPopup) {
+      headers = { 'x-error-general':'skip' }
+    }
+    return this.http.get( WsConstant.getProfilingDetail, {headers});
   }
 
   postProfilingUpdate( payload: any ): Observable<any> {

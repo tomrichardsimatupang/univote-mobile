@@ -21,7 +21,8 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="retry()">Coba Lagi</ion-button>
+        <ion-button *ngIf="isEnableRetry" expand="block" (click)="retry()">Coba Lagi</ion-button>
+        <ion-button *ngIf="!isEnableRetry" expand="block" (click)="backToMenu()">Kembali</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

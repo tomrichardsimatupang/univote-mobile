@@ -21,6 +21,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     const domain = environment.apiUrl;
+    const skipGeneralError = request.headers.get('x-error-general') === 'skip';
 
     if(this.authService.isLoggedIn() && request.url.includes(domain) ) {
       request = request.clone({
@@ -33,7 +34,7 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError( error => {
         const skipErrorCode = ["400129"];
-        if(!skipErrorCode.includes(error?.error?.code)) {
+        if(!skipErrorCode.includes(error?.error?.code) && !skipGeneralError) {
           this.popupService.generalError(error);
         }
         return throwError( () => error );

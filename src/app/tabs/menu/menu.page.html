@@ -36,7 +36,7 @@
         </ion-card>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row *ngIf="enableProfilingDetail">
       <ion-col>
         <ion-card color="primary" (click)="navigateTo('app/profiling')">
           <div class="menu-item-icon">

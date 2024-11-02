@@ -9,6 +9,12 @@
   <ng-container *ngIf="!loading; else loader">
 
     <ng-container *ngIf="isVotingFinished;  else emptyState">
+
+      <div class="notes-thanku">
+        <h4>Terima Kasih Telah Memilih</h4>
+        <p>Anda telah selesai melakukan pemilihan berikut daftar kandidat yang anda telah pilih, terimakasih atas partisipasi anda.</p>
+      </div>
+
       <ion-card *ngFor="let item of candidateSelectedList">
         <ion-card-header>
           <ion-card-subtitle>{{ item?.category_name }}</ion-card-subtitle>
