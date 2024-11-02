@@ -8,6 +8,7 @@ import {
 import { Observable, catchError, throwError } from 'rxjs';
 import { AuthService } from '../@services/http/auth.service';
 import { PopupService } from '../@services/popup/popup.service';
+import { environment } from '@environments/environment';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -19,7 +20,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    if(this.authService.isLoggedIn()) {
+    const domain = environment.apiUrl;
+    const skipGeneralError = request.headers.get('x-error-general') === 'skip';
+
+    if(this.authService.isLoggedIn() && request.url.includes(domain) ) {
       request = request.clone({
         setHeaders: {
           'Authorization': `Bearer ${this.authService.accessToken}`,
@@ -27,10 +31,12 @@ export class AuthInterceptor implements HttpInterceptor {
       })
     }
 
-
     return next.handle(request).pipe(
       catchError( error => {
-        this.popupService.generalError(error);
+        const skipErrorCode = ["400129"];
+        if(!skipErrorCode.includes(error?.error?.code) && !skipGeneralError) {
+          this.popupService.generalError(error);
+        }
         return throwError( () => error );
       })
     );

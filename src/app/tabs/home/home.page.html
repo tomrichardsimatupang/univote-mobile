@@ -14,14 +14,18 @@
   </ion-header>
 
   <ion-card class="post" *ngFor="let item of posts">
-    <img alt="Silhouette of mountains" [src]="item.image" />
+    <img alt="Silhouette of mountains" [src]="item.imageContent" />
     <ion-card-header>
       <ion-card-subtitle>admin</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      Here's a small text description...
-      <button class="button-more">more</button>
+      {{ item.body }}
+      <!-- <button class="button-more">more</button> -->
+      <div class="date">
+        {{ item.postDate }}
+      </div>
     </ion-card-content>
+
   </ion-card>
 
 </ion-content>

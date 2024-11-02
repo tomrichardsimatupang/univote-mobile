@@ -27,7 +27,9 @@
       "@assets/*": ["src/assets/*"],
       "@environments/*": ["src/environments/*"],
     },
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

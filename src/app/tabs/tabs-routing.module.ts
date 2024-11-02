@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('./account/account.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'profiling',
+        loadChildren: () => import('./profiling/profiling.module').then( m => m.ProfilingPageModule)
+      },
+      {
         path: '',
         redirectTo: '/app/home',
         pathMatch: 'full'

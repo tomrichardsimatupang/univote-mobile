@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: '/microservice/',
+  apiUrl: '/microservices/',
   deployUrl: '/app/'
 };

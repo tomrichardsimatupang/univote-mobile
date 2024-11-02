@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import { Observable, Subject, catchError, map, takeUntil } from 'rxjs';
 import { LoaderService } from 'src/app/@services/popup/loader.service';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../../@services/http/auth.service';
+import pkg from '../../../../package.json';
 
 @Component({
   selector: 'app-base',
@@ -11,6 +12,8 @@ import { AuthService } from '../../@services/http/auth.service';
 })
 export class BaseComponent implements OnDestroy {
 
+  version = pkg.version;
+
   deployUrl = environment.deployUrl;
 
   unsubscribe$ = new Subject<void>();
@@ -18,7 +21,9 @@ export class BaseComponent implements OnDestroy {
   loaderService = inject(LoaderService);
   authService = inject(AuthService);
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();

@@ -21,18 +21,16 @@ export class SignInPage extends BaseComponent implements OnInit, OnDestroy {
   })
 
   ngOnInit(): void {
-    /** empty */
-
     this.withLoader(this.authService.postTokenVerify())
       .subscribe({
         next: (response) => {
+          this.authService.saveUserData(response);
           this.navCtrl.navigateRoot('/app');
         },
         error: (error) => {
           this.authService.clearLogin();
         }
       })
-
   }
 
   signIn() {

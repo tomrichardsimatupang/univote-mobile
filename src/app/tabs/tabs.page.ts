@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { addIcons } from 'ionicons';
+import { chatbubble, apps, person } from 'ionicons/icons';
+
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
@@ -7,6 +10,8 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor() {
+    addIcons({ chatbubble, apps, person });
+  }
 
 }

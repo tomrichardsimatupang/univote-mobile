@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ candidate?.category_name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <img alt="Menu Voting" [src]="candidate?.photo" />
+    <ion-card-header>
+      <ion-card-subtitle>{{ candidate?.candidate_name }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-list>
+
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+     <ion-col class="ph-16">
+      <h4>Visi</h4>
+     </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ph-16">
+        <ion-note>{{ candidate?.candidate_vision }}</ion-note>
+      </ion-col>
+     </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+     <ion-col class="ph-16">
+      <h4>Misi</h4>
+     </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ph-16">
+        <ion-note>{{ candidate?.candidate_mission }}</ion-note>
+      </ion-col>
+     </ion-row>
+  </ion-grid>
+
+  <div class="spacer"></div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ph-16">
+       <ion-button (click)="openConfirm()" expand="block" shape="round">Vote</ion-button>
+      </ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col class="ph-16">
+        <ion-button (click)="navigateBack()" expand="block" shape="round" color="medium">Batal</ion-button>
+       </ion-col>
+      </ion-row>
+  </ion-grid>
+
+  <ion-action-sheet
+    header="Konfirmasi"
+    [subHeader]="description"
+    [buttons]="actionSheetButtons"
+    [isOpen]="isActionSheetOpen"
+    (didDismiss)="postVote($event)"></ion-action-sheet>
+
+</ion-content>
