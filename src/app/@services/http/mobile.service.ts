@@ -57,4 +57,17 @@ export class MobileService extends HttpCoreService {
     return this.http.get( WsConstant.getContentPostList );
   }
 
+  getVoteReportList(skipPopup = false): Observable<any> {
+    let headers = {};
+    if(skipPopup) {
+      headers = { 'x-error-general':'skip' }
+    }
+    return this.http.get( WsConstant.getVoteReportList, {headers});
+  }
+
+  getVoteReporDetail( query: any ): Observable<any> {
+    const url = `${WsConstant.getVoteReportDetail}?${this.buildQuery(query)}`;
+    return this.http.get( url );
+  }
+
 }

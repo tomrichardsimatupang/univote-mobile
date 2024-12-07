@@ -21,6 +21,10 @@ export const WsConstant = {
 
   postProfilingUpdate: `${environment.apiUrl}mobile-service/v1/register/profiling/update`,
 
-  getContentPostList: `${environment.apiUrl}mobile-service/v1/content/post/list`
+  getContentPostList: `${environment.apiUrl}mobile-service/v1/content/post/list`,
+
+  getVoteReportList: `${environment.apiUrl}mobile-service/v1/vote/report/list`,
+
+  getVoteReportDetail: `${environment.apiUrl}mobile-service/v1/vote/report/detail`
 
 }

@@ -24,6 +24,14 @@ const routes: Routes = [
         loadChildren: () => import('./profiling/profiling.module').then( m => m.ProfilingPageModule)
       },
       {
+        path: 'report',
+        loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
+      },
+      {
+        path: 'report-detail',
+        loadChildren: () => import('./report-detail/report-detail.module').then( m => m.ReportDetailPageModule)
+      },
+      {
         path: '',
         redirectTo: '/app/home',
         pathMatch: 'full'
@@ -34,7 +42,7 @@ const routes: Routes = [
     path: '',
     redirectTo: '/app/home',
     pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({
