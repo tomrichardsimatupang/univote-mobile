@@ -41,6 +41,7 @@ export class CandidateListPage extends BaseComponent {
   }
 
   ionViewWillEnter() {
+    this.nextCategory = null;
     this.hardwareService.getPermission().then(
       (deviceId:string) => {
         this.deviceId = deviceId;
@@ -143,8 +144,6 @@ export class CandidateListPage extends BaseComponent {
 
       });
 
-      console.log(this.candidateSelectedList);
-
       this.categories = [];
       this.category = "Calon Pilihan"
 
@@ -173,6 +172,7 @@ export class CandidateListPage extends BaseComponent {
     }else {
       this.categories = [];
     }
+
   }
 
   private copyValue(value: any) {
