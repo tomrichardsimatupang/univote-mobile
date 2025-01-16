@@ -45,6 +45,10 @@ export class HomePage extends BaseComponent {
       this.mobileService.getContentPostList().subscribe({
         next: (response: Array<Post>) => {
 
+          response = response.sort((a, b) => {
+            return new Date(b.postDate).getTime() - new Date(a.postDate).getTime();
+          });
+
           const caceImageLoad = new Array<Observable<any>>();
 
           response.forEach((post: Post) => {
