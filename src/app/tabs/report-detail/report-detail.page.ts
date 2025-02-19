@@ -10,6 +10,7 @@ interface Candidate {
   candidate_name: string,
   candidate_number: number,
   candidate_photo: string,
+  category_name: string,
   count_total: number,
   count_result: number
 }
@@ -22,6 +23,7 @@ interface Candidate {
 export class ReportDetailPage extends BaseComponent {
 
   candidates: Array<Candidate> = [];
+  categoryName = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -46,6 +48,7 @@ export class ReportDetailPage extends BaseComponent {
       next: async (response) => {
         this.candidates = await Promise.all(
           response.map(async (candidate: Candidate) => {
+            this.categoryName = candidate.category_name;
             const candidate_photo = await this.fetchPhoto(candidate.candidate_photo);
             return {
               ...candidate,
