@@ -13,19 +13,25 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card class="post" *ngFor="let item of posts">
-    <img alt="Silhouette of mountains" [src]="item.imageContent" />
-    <ion-card-header>
-      <ion-card-subtitle>admin</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      {{ item.body }}
-      <!-- <button class="button-more">more</button> -->
-      <div class="date">
-        {{ item.postDate }}
-      </div>
-    </ion-card-content>
+  <div *ngIf="loading" style="padding: 0px 16px">
+    <app-loader-post></app-loader-post>
+    <app-loader-post></app-loader-post>
+  </div>
 
-  </ion-card>
+  <ng-container *ngIf="!loading">
+    <ion-card class="post" *ngFor="let item of posts">
+      <img alt="Silhouette of mountains" [src]="item.imageContent" />
+      <ion-card-header>
+        <ion-card-subtitle>admin</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div [innerHTML]="item.body"></div>
+        <!-- <button class="button-more">more</button> -->
+        <div class="date">
+          {{ item.postDate }}
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
 
 </ion-content>

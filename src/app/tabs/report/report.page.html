@@ -1,0 +1,38 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-title>Hasil Voting</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Hasil Voting</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ng-container *ngIf="error; else categoryTemplate">
+    <div class="empty-state-outer">
+      <app-empty-state
+        [title]="error.title || ''"
+        [message]="error.message || ''"
+        [buttonText]="'Kembali'"
+        (refresh)="back()"
+      />
+    </div>
+  </ng-container>
+
+</ion-content>
+
+<ng-template #categoryTemplate>
+  <div *ngFor="let category of categories">
+    <ion-card class="tapable" (click)="navigateDetail(category)">
+      <ion-card-header>
+        <ion-card-subtitle>{{ category.category_name }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <span>{{ category.count_result }}</span><span> Suara</span>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ng-template>

@@ -21,6 +21,7 @@ export interface Post {
 })
 export class HomePage extends BaseComponent {
 
+  loading = true;
   posts: Array<Post>;
 
   constructor(
@@ -38,9 +39,15 @@ export class HomePage extends BaseComponent {
     if(lastPostUpdates) {
       this.posts = JSON.parse(lastPostUpdates);
       this.buildPost();
+      this.loading = false;
     }else {
+      this.loading = true;
       this.mobileService.getContentPostList().subscribe({
         next: (response: Array<Post>) => {
+
+          response = response.sort((a, b) => {
+            return new Date(b.postDate).getTime() - new Date(a.postDate).getTime();
+          });
 
           const caceImageLoad = new Array<Observable<any>>();
 
@@ -53,6 +60,7 @@ export class HomePage extends BaseComponent {
             sessionStorage.setItem('dashboardPosts', JSON.stringify(this.posts));
             this.buildPost();
           });
+          this.loading = false;
 
         }
       })
