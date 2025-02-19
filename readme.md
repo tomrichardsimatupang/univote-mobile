@@ -139,7 +139,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 For support, email support@univote.or.id or create an issue in the GitHub repository.
 
 ## Authors
-- Your Name - *Tom Richard Simatupang* - [TomRichard](https://github.com/tomrichardsimatupang)
+- *Tom Richard Simatupang* - [GitHub](https://github.com/tomrichardsimatupang)
 
 ## Version History
 - 1.0.0
